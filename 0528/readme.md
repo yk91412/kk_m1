@@ -88,8 +88,13 @@
 
     np.random.randint(최솟값, 최댓값, size(원하는 행, 열))
 
+    np.arange(값).reshape(원하는 행, 열)
+
+     => 값에 12.을 넣으면 실수단위로 값이 넣어진다(0.0부터 11.0까지)
     
-    
+   - 행 이름과 열 이름 변경
+
+     df명.rename(columns = 열 이름, index = 행이름, inplace = True(기존값에 저장))
 
 
 
