@@ -118,16 +118,36 @@ group 객체.apply(매핑함수)
 
 - 누적 합/ 누적곱 메서드
 
-  cumsum/ cumprod
+  1. cumsum/ cumprod
 
+  2. expanding()
+
+  expanding().sum() / mean() / max() ... 다양한 누적 통계량
+
+- axis = columns == axis = 1
+
+- 표준화
+- 
+  데이터의 평균을 0, 표준편차를 1로 변환하는 과정
+  
+  이 과정을 통해 데이터의 스케일을 조정하고 비교 가능한 형태로 만듦
+
+  (값 - 값의 평균) / 표준편차
+  
 ========================================================================
 
 ** 함수 매핑
 
 커스텀 함수(custom function)를 DataFrame에 적용하려면 map함수, apply함수, applymap함수를 사용
 
-map 함수는 Series의 각 요소에 함수를 적용.
+- map 함수
 
-apply 함수는 Series 또는 DataFrame의 행이나 열에 함수를 적용.
+  Series의 각 요소에 함수를 적용(Series만 가능)
 
-applymap 함수는 DataFrame의 각 요소에 함수를 적용.
+- apply 함수
+
+  Series 또는 DataFrame의 행이나 열에 함수를 적용
+
+- applymap 함수
+
+  DataFrame의 각 요소에 함수를 적용
