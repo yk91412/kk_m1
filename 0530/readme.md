@@ -160,6 +160,12 @@ applymap은 DataFrame의 모든 요소에 대해 함수를 적용하므로, 전�
 
   ** 범주형 데이터 -> 수치형 데이터
 
+  from sklearn.preprocessing import LabelEncoder
+
+  fit_transform
+  
+  데이터를 전처리할 때 사용되며, 변환기(transformer)를 데이터에 맞게 적합시키고, 그 적합에 따라 데이터를 변환
+  
   1. Label Encoding
     
      각 범주형 값을 고유한 정수로 변환
@@ -168,10 +174,26 @@ applymap은 DataFrame의 모든 요소에 대해 함수를 적용하므로, 전�
      
   2. One-Hot Encoding
     
-     각 범주형 값을 이진 벡터로 변환
+     각 범주형 값을 이진 벡터로 변환(0,1)
 
      범주형 변수에 순서나 순위가 없을 때 유용
 
+  별도의 열을 만들고, 해당 범주에 해당하는 경우 1, 그렇지 않은 경우 0
+
+                이제는 true,false로 나온다
+                
+  ex) color_ blue  color_red ...
+      0              0
+      0              1
+      1              0
+      0              0
+
+  - get_dummies() 함수
+
+  범주형 데이터를 원-핫 인코딩(One-Hot Encoding) 방식으로 변환
+
+  ex) pd.get_dummies(df명)
+  
   ===============================================================
 
   ** 시각화
