@@ -20,3 +20,12 @@
 
         => replace로 값을 변환할 수도 있지만 애매하다면 np.nan으로 바꾸어 dropna() 실행
 
+- heatmap
+
+  sns.heatmap(df.corr(), annot=True, cmap='coolwarm',center = 0)
+  
+  center = 0 => 색상 맵의 중앙값이 0, 0을 기준으로 cool/warm으로 나누겠다
+
+- 파생 변수 생성시 종속 변수 사용x
+
+  독립 변수끼리로만 파생 변수 만들기
