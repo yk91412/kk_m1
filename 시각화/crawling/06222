@@ -1,0 +1,25 @@
+# 앵커 태그에 사용되는 텍스트로 접근하여 요소 추출
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+
+# webdriver 실행
+driver = webdriver.Chrome()
+
+# 구글 웹사이트 열기
+driver.get('https://www.google.com')
+
+try:
+    element_by_as = driver.find_element(By.LINK_TEXT, '')
+    print("Element found by class:", element_by_as.get_attribute('class'))
+except:
+    print("Element not found by class")
+
+
+
+<a class="gb_I" aria-label="이미지 검색 "
+data-pid="2" href="https://www.google.com/imghp?hl=ko&amp;tab=ri&amp;ogbl" target="_top">이미지</a>
+
+검색창에는 a에 앵커 텍스트가 없어서 불가능하고 이걸 활용해서 이미지를 쓰면 추출 가능할 듯 
+par도 !
