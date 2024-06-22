@@ -23,3 +23,13 @@ data-pid="2" href="https://www.google.com/imghp?hl=ko&amp;tab=ri&amp;ogbl" targe
 
 검색창에는 a에 앵커 텍스트가 없어서 불가능하고 이걸 활용해서 이미지를 쓰면 추출 가능할 듯 
 par도 !
+
+
+
+=====
+
+네이버 로그인 오류가 뜨는건 네이버에서 자동 로그인을 막아둔 것 같다 ;
+
+https://aday7.tistory.com/entry/Python-Selenium%EC%9C%BC%EB%A1%9C-%EB%84%A4%EC%9D%B4%EB%B2%84-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EC%9E%90%EB%8F%99%ED%99%94-%EB%B3%B4%EC%95%88-%EC%BA%A1%EC%B1%A0-%ED%9A%8C%ED%94%BC-%EB%B0%A9%EB%B2%95
+
+pyperclip 적용하면 되는 듯 하다
