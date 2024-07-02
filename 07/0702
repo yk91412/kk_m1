@@ -1,0 +1,41 @@
+<!DOCTYPE html> - 문서 유형 정의
+
+  └── html => 모든 HTML 문서의 최상위 요소
+
+        ex) <html lang="en">
+
+      ├── head => 문서의 메타데이터를 포함
+
+          문서 제목, 스타일 시트 링크, 스크립트...
+      │   ├── title => 웹 페이지의 제목
+      |   |-- meta => 메타 데이터 정의
+      │   │   └── "Example"
+
+
+      └── body => 실제로 브라우저에 표시되는 콘텐츠 포함
+
+          ├── h1 => 굵은 글씨 ..h6
+          │   └── "DOM Example"
+          └── p (id="intro") => 단락정의
+              └── "This is a simple DOM example."
+
+
+ul : 순서 없는 목록 정의
+li : 목록 항목을 정의
+
+=========================
+
+폼 태그
+
+form : 사용자 입력 받는 폼 정의
+
+input : 다양한 유형의 입력 필드 정의
+
+  => input type (닫히는 태그 업음)
+
+  => <input type="text" name="username" value="JohnDoe" placeholder="Enter your username">
+      <input type="submit" value="Submit"> # type="submit": 이 입력 필드를 제출 버튼으로 정의
+
+====================================
+
+javascript 사용을 한다는 표시 : script 태그
