@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 특허</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* 배경 이미지 경로 */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.8); /* 배경 색상 및 투명도 조정 */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .categories {
+            width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-right: 1px solid #ccc;
+            overflow-y: auto; /* 카테고리가 넘칠 경우 스크롤 생성 */
+        }
+        .categories h2 {
+            margin-top: 0;
+            font-size: 18px;
+        }
+        .category-item {
+            cursor: pointer;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+        .category-item:hover {
+            background-color: #e0e0e0;
+        }
+        .patents {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto; /* 특허 목록이 넘칠 경우 스크롤 생성 */
+        }
+        .patent-item {
+            margin-bottom: 10px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .patent-item h3 {
+            margin-top: 0;
+            font-size: 16px;
+        }
+        .patent-item p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+        .search-box {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="categories">
+            <h2>카테고리</h2>
+            <div class="category-item" onclick="showPatents('machine-learning')">머신 러닝</div>
+            <div class="category-item" onclick="showPatents('computer-vision')">컴퓨터 비전</div>
+            <div class="category-item" onclick="showPatents('natural-language-processing')">자연어 처리</div>
+            <div class="category-item" onclick="showPatents('robotics')">로봇공학</div>
+            <div class="category-item" onclick="showPatents('artificial-intelligence')">인공 지능</div>
+            <!-- 기타 카테고리 추가 -->
+        </div>
+        <div class="patents">
+            <h2>특허 목록</h2>
+            <div class="search-box">
+                <input type="text" placeholder="검색어를 입력하세요">
+                <button onclick="searchPatents()">검색</button>
+            </div>
+            <div id="patent-list">
+                <!-- 선택된 카테고리에 따른 특허 목록이 여기에 동적으로 추가됩니다 -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPatents(category) {
+            const patentListElement = document.getElementById('patent-list');
+            patentListElement.innerHTML = ''; // 기존 목록 초기화
+
+            // 각 카테고리에 맞는 예시 데이터 (실제 데이터와 대체할 것)
+            let patents = [];
+            switch (category) {
+                case 'machine-learning':
+                    patents = [
+                        { title: 'Machine Learning Patent 1', description: 'Description for ML Patent 1' },
+                        { title: 'Machine Learning Patent 2', description: 'Description for ML Patent 2' }
+                    ];
+                    break;
+                case 'computer-vision':
+                    patents = [
+                        { title: 'Computer Vision Patent 1', description: 'Description for CV Patent 1' },
+                        { title: 'Computer Vision Patent 2', description: 'Description for CV Patent 2' }
+                    ];
+                    break;
+                case 'natural-language-processing':
+                    patents = [
+                        { title: 'NLP Patent 1', description: 'Description for NLP Patent 1' },
+                        { title: 'NLP Patent 2', description: 'Description for NLP Patent 2' }
+                    ];
+                    break;
+                case 'robotics':
+                    patents = [
+                        { title: 'Robotics Patent 1', description: 'Description for Robotics Patent 1' },
+                        { title: 'Robotics Patent 2', description: 'Description for Robotics Patent 2' }
+                    ];
+                    break;
+                case 'artificial-intelligence':
+                    patents = [
+                        { title: 'AI Patent 1', description: 'Description for AI Patent 1' },
+                        { title: 'AI Patent 2', description: 'Description for AI Patent 2' }
+                    ];
+                    break;
+                default:
+                    patents = [];
+                    break;
+            }
+
+            // 특허 목록을 HTML로 추가
+            patents.forEach(patent => {
+                const patentElement = document.createElement('div');
+                patentElement.classList.add('patent-item');
+                patentElement.innerHTML = `
+                    <h3>${patent.title}</h3>
+                    <p>${patent.description}</p>
+                `;
+                patentListElement.appendChild(patentElement);
+            });
+        }
+
+        function searchPatents() {
+            const searchInput = document.querySelector('.search-box input').value.toLowerCase();
+            const patentItems = document.querySelectorAll('.patent-item');
+            
+            patentItems.forEach(item => {
+                const title = item.querySelector('h3').textContent.toLowerCase();
+                const description = item.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchInput) || description.includes(searchInput)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Anton SC', sans-serif;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+            margin: 0;
+        }
+
+        h1{
+            background-color: aqua; /* 이미지를 요소에 맞게 크기 조정 */
+            color: #fff; /* 글자색 흰색 */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            margin-top: 0;
+            padding: 20px; /* 안쪽 여백 설정 */
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+        }
+
+        form p {
+            margin: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between; /* 요소 사이 공간을 최대화하여 오른쪽 배치 */
+            align-items: center;
+            width: 80%; /* 전체 너비 설정 */
+            background-color: #fff;
+            padding: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+            max-width: 800px;
+            flex-direction: column;
+}
+
+        input[type="text"],
+        input[type="date"]{
+            border: 1px solid aqua;
+            border-radius: 20px;
+            padding: 8px 12px;
+            margin-right: 10px;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
+        input[type="submit"]{
+            background-color: rgb(95, 217, 221);
+            color:black;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+        }
+
+        input[type="submit"]:hover{
+            background-color: rgb(165, 236, 236);
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            fetch()
+        })
+    </script>
+</head>
+<body>
+    <h1>AI 특허</h1>
+    <form method="POST" action="/">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+        <p>
+            <label for="search_keyword">검색어</label>
+            <input type="text" name="search_keyword" id="search_keyword" placeholder="원하는 검색어를 입력하세요"/>
+            <input type="submit" value="search"/>
+        </p>
+        <p>
+            <label for="start_date">시작일</label>
+            <input type="date" name="start_date" id="start_date" required/>
+            <label for="end_date">종료일</label>
+            <input type="date" name="end_date" id="end_date" required/>
+        </p>
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 특허 검색</title>
+    <style>
+        body {
+            font-family: 'Anton SC', sans-serif;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 22vh;
+        }
+
+        .container {
+            width: 100%;
+            background-color: #fff;
+            border-radius: 8px;
+            text-align: left;
+            display: flex;
+            flex-direction: column; /* 내부 요소들을 세로로 배치 */
+            justify-content: space-between; /* 세로 가운데 정렬 */
+            align-items: center; /* 가로 가운데 정렬 */
+            
+        }
+
+        h1 {
+            background-color: aqua;
+            color: #fff;
+            padding: 20px;
+            margin-top: 0;
+            margin-bottom:20px;
+            width: 100%;
+        }
+
+        .search-section {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .date-section {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: row-reverse; /* 요소들을 반대로 배치 */
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            border: 1px solid aqua;
+            border-radius: 20px;
+            padding: 8px 12px;
+            margin-right: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(107, 237, 241);
+            color: black;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+        }
+
+        input[type="submit"]:hover{
+            background-color: rgb(135, 228, 228);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI 특허</h1>
+
+        <div class="search-section">
+            <form method="POST" action="/">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                <div class="input-group">
+                    <label for="search_keyword">검색어</label>
+                    <input type="text" name="search_keyword" id="search_keyword" placeholder="원하는 검색어를 입력하세요"/>
+                    <input type="submit" value="search"/>
+                </div>
+            </form>
+        </div>
+
+        <div class="date-section">
+            <form method="POST" action="/">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                <div class="input-group">
+                    <label for="start_date">시작일</label>
+                    <input type="date" name="start_date" id="start_date" required/>
+                    <label for="end_date">종료일</label>
+                    <input type="date" name="end_date" id="end_date" required/>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
