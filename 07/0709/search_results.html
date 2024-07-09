@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>검색 결과</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h4>인공지능 특허 알아보기</h4>
+        <img src="{{ url_for('static', filename='image/example.png') }}" class="header-image" width="50" height="50">
+        <h1 onclick="window.location.reload()">AI 특허 검색</h1>
+    </header>
+
+    
+   
+
+    <section class="result-section">
+        <div id="result-container">
+            <h2>검색 결과</h2>
+            <table id="resultsTable">
+                <thead>
+                    <tr>
+                        <th>출원번호</th>
+                        <th>출원일</th>
+                        <th>출원인</th>
+                        <th>특허명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patent in patents %}
+                    <tr>
+                        <td>{{ patent.ap_num }}</td>
+                        <td>{{ patent.application_date }}</td>
+                        <td>{{ patent.applicant }}</td>
+                        <td>{{ patent.title }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div id="applicant-info">
+            <h3>전체 출원인 수: {{ total_applicants }}</h3>
+            <h3>전체 출원인 정보 (Top 5)</h3>
+            <ul>
+                {% for applicant in applicants_all %}
+                    <li>
+                        <a href="https://www.wanted.co.kr/search?query={{ applicant.applicant|urlencode }}&tab=overview" target="_blank">
+                            {{ applicant.applicant }}
+                        </a>
+                        ({{ applicant['count'] }} 건)
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <h3>대기업 제외 출원인 정보</h3>
+            <ul>
+                {% for applicant in applicants_exclude_large %}
+                    <li>
+                        <a href="https://www.wanted.co.kr/search?query={{ applicant.applicant|urlencode }}&tab=overview" target="_blank">
+                            {{ applicant.applicant }}
+                        </a>
+                        ({{ applicant['count'] }} 건)
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+    
+    <footer>
+        <p>My AI List &copy; 4조</p>
+    </footer>
+</body>
+</html>

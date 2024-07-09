@@ -1,0 +1,39 @@
+body {
+    font-family: SEBANG_Gothic,
+    "Noto Sans KR", "Malgun Gothic", 돋움, Dotum, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#search-section, #result-section {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.link {
+    color: blue;
+    cursor: pointer;
+}
+
+footer{
+    background-color:#9abee7;
+    color:#070707;
+    text-align: center;
+    padding: 20px;
+}
