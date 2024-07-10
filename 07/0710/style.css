@@ -1,0 +1,148 @@
+body {
+    font-family: SEBANG_Gothic,
+    "Noto Sans KR", "Malgun Gothic", 돋움, Dotum, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+
+
+header {
+    background: #9abee7;
+    padding: 20px;
+    text-align: center;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-image {
+    display: inline-block; /* 인라인 블록 요소로 설정하여 텍스트 옆에 배치 */
+    vertical-align: middle; /* 수직 정렬을 위해 중앙 정렬 */
+    margin-right: 10px; /* 텍스트와 이미지 사이의 간격 설정 */
+
+}
+
+h1 {
+    cursor: pointer;
+    margin: 0;
+    margin-top: 20px;
+    display: inline-block; /* 인라인 블록 요소로 설정하여 텍스트 옆에 배치 */
+    vertical-align: middle; /* 수직 정렬을 위해 중앙 정렬 */
+}
+
+header h4{
+    border-bottom:1px solid rgb(101, 102, 109);
+    text-align: center;
+    margin:0;
+    align-items: center;
+    padding:10px 0 ;
+}
+
+.filters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+
+.filter-section {
+    width: 70%;
+    margin-left: 20px;
+}
+
+.checkbox-section {
+    width: 22%;
+}
+
+.form-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.form-control, .filters select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 1rem;
+    width: 100px;
+ 
+}
+
+button.search-button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+}
+
+button.search-button:hover {
+    background-color: #45a049;
+}
+
+.checkbox-section ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox-section li {
+    width: 45%;
+    margin-bottom: 0.5rem;
+}
+
+.applicant-section h2, .applicant-section h3 {
+    margin-top: 20px;
+}
+
+.applicant-section ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.applicant-section li {
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.result-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.result-section th, .result-section td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.result-section th {
+    background-color: #f2f2f2;
+}
+
+footer {
+    background-color:#9abee7;
+    color:#070707;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 60px; /* footer의 높이 설정 */
+    text-align: center;
+    line-height: 60px; 
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>AI 특허 검색</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <h4>인공지능 특허 알아보기</h4>
+        <img src="{{ url_for('static', filename='image/example.png') }}" class="header-image" width="50" height="50">
+        <h1>AI 특허 검색</h1>
+    </header>
+    <div class="container">
+        <section class="checkbox-section">
+            <h3>응용분야</h3>
+            <ul>
+                <li><input type="checkbox" id="general" name="general"><label for="general"> 제너럴</label></li>
+                <li><input type="checkbox" id="medical" name="medical"><label for="medical"> 의료</label></li>
+                <li><input type="checkbox" id="e-commerce" name="e-commerce"><label for="e-commerce"> 전자·상거래</label></li>
+                <li><input type="checkbox" id="automotive" name="automotive"><label for="automotive"> 자동차</label></li>
+                <li><input type="checkbox" id="finance" name="finance"><label for="finance"> 금융</label></li>
+                <li><input type="checkbox" id="education" name="education"><label for="education"> 교육</label></li>
+                <li><input type="checkbox" id="agriculture" name="agriculture"><label for="agriculture"> 농업</label></li>
+                <li><input type="checkbox" id="entertainment" name="entertainment"><label for="entertainment"> 엔터테인먼트</label></li>
+                <li><input type="checkbox" id="security" name="security"><label for="security"> 보안</label></li>
+                <li><input type="checkbox" id="automation" name="automation"><label for="automation"> 자동화시스템</label></li>
+                <li><input type="checkbox" id="semiconductor" name="semiconductor"><label for="semiconductor"> 반도체</label></li>
+            </ul>
+            <div class="applicant-section">
+                <h2>출원인 수: {{ total_applicants }}</h2>
+                <h3>전체 출원인 top 5</h3>
+                <ul>
+                    {% for applicant in applicants_all %}
+                        <li><a href="https://www.wanted.co.kr/search?query={{ applicant['applicant'] }}&tab=overview">{{ applicant['applicant'] }} ({{ applicant['count'] }}건)</a></li>
+                    {% endfor %}
+                </ul>
+                <h3>중소기업 중 top 5</h3>
+                <ul>
+                    {% for applicant in applicants_exclude_large %}
+                        <li><a href="https://www.wanted.co.kr/search?query={{ applicant['applicant'] }}&tab=overview">{{ applicant['applicant'] }} ({{ applicant['count'] }}건)</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+        <section class="filter-section">
+            <form id="searchForm" method="POST" action="{{ url_for('index') }}">
+                {{ form.hidden_tag() }}
+            <div class="filters">
+                <div class="form-group">
+                    <label for="filter">필터:</label>
+                    <select id="filter">
+                        <option value="general">전체</option>
+                        <option value="medical">출원인</option>
+                        <option value="e-commerce">카테고리</option>
+                    </select>
+                    <label for="keyword">검색어:</label>
+                    {{ form.keyword(class="form-control") }}
+                </div>
+                <div class="form-group">
+                    <label for="start-date">출원일자:</label>
+                    {{ form.applicate_date(id='start-date', class="form-control") }}
+                    <span>~</span>
+                    {{ form.applicate_date(id='end-date', class="form-control") }}
+                    <button type="submit" class="search-button">검색</button>
+                </div>
+            </div>
+            </form>
+            <div class="result-section">
+                <h2>검색 결과</h2>
+                {% if message %}
+                    <p>{{ message }}</p>
+                {% else %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>제목</th>
+                                <th>출원번호</th>
+                                <th>출원인</th>
+                                <th>출원일자</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for patent in patents %}
+                                <tr>
+                                    <td>{{ patent['title'] }}</td>
+                                    <td>{{ patent['ap_num'] }}</td>
+                                    <td>{{ patent['applicant'] }}</td>
+                                    <td>{{ patent['application_date'] }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>My AI List &copy; 4조</p>
+    </footer>
+</body>
+</html>
