@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yearly Counts Plot</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <h1 class="center">Yearly Counts Plot</h1>
+    <div id="plot-container">
+        {{ plot | safe }}
+    </div>
+</body>
+</html>

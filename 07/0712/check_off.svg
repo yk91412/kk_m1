@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+    <g fill="#fff" stroke="#e2e2e2">
+        <rect width="22" height="22" stroke="none" rx="4"/>
+        <rect width="21" height="21" x=".5" y=".5" fill="none" rx="3.5"/>
+    </g>
+    <path fill="#707070" d="M-2015.465 7.071L-2019 3.535l.707-.707 3.536 3.536-3.536-3.536.707-.707 3.536 3.536 5.657-5.657 1.414 1.414-7.071 7.071zm-2.828-4.242z" opacity="0.2" transform="translate(2023.99 6.757)"/>
+</svg>
