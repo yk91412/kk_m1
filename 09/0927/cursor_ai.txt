@@ -1,0 +1,64 @@
+ubuntu 실행
+
+mkdir kita => kita 생성
+
+ls
+
+cd kita
+
+code . => vscode로 실행
+
+
+시스템 환경변수에
+c:\Users\Administrator\AppData\Local\Programs\cursor\resources\app\bin
+추가
+
+cursor . =>으로 실행
+
+====
+WSL:UBUNTU-22.04로 안들어가질경우
+
+cmd창에서 
+wsl -d Ubuntu-22.04
+으로 wsl로 ubuntu를 실행
+
+cd kita
+
+cursor .으로 들어가기
+
+<가상환경>
+python3 -m venv venv을 했을 때
+Failing command: /mnt/c/Users/Administrator/kita/venv/bin/python3
+이게 뜨면 
+
+sudo apt update
+패키지 목록 업데이트
+
+sudo apt install python3-venv
+패키지 설치
+
+python3 -m venv venv
+명령어 실행 후 아무 메시지도 없이 다시 프롬프트로 돌아오면 성공
+
+source venv/bin/activate
+가상환경 활성화
+
+pip install -r requirements.txt
+필요한 패키지 설치
+
+
+==================================
+
+ctrl+shift+Y : 코드 바꾸기
+ctrl+N : 원래 코드로 실행
+
+
+ctrl+shift+i => composers 실행
+
+@Codebase를 통해서
+code에 관한 것을 물어볼 수 있음
+
+ex) py에 대해 자세히 설명하는 readme.md를 작성해줘
+
+
+
